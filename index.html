@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const dorms = require("dorms.json");
+    </script>
+
+    <nav title="navigation">
+      <div id="global-header">
+        <div id="global-branding">
+          <div class="navbar-nbn-logo">
+            <a
+              class="navbar-brand"
+              href="http://www.northbynorthwestern.com/"
+              title="North by Northwestern"
+              target="_top"
+            >
+              <img src="assets/nbn-white.png" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="wrapper">
+      <div id="mapid"></div>
+
+      <div class="dorm-list-wrapper">
+        <table class="dorms-list">
+          <thead>
+            <td>Dorm</td>
+            <td>Size</td>
+            <td>Type</td>
+          </thead>
+          <tbody>
+            {% for item in dorms %}
+            <tr
+              class="dorm-row"
+              data-fullname="{{ item.name }}"
+              data-marker="{{ loop.index0 }}"
+            >
+              <td>
+                <p class="dorm-name">
+                  <a href="/{{ item.slug }}">{{ item.short_name }}</a>
+                </p>
+              </td>
+              <td><p class="dorm-size">{{ item.size }}</p></td>
+              <td><p class="dorm-type">{{ item.dorm_type }}</p></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="filter-dorms">
+        <div class="filter-option">Campus area</div>
+        <ul class="campus-area">
+          <li>
+            <input class="filter" id="north" type="checkbox" />North campus
+          </li>
+          <li>
+            <input class="filter" id="south" type="checkbox" />South campus
+          </li>
+        </ul>
+
+        <div class="filter-option">Dorm size</div>
+        <ul class="size">
+          <li><input class="filter" id="small" type="checkbox" />Small</li>
+          <li><input class="filter" id="medium" type="checkbox" />Medium</li>
+          <li><input class="filter" id="large" type="checkbox" />Large</li>
+        </ul>
+
+        <div class="filter-option">Type of dorm</div>
+        <ul class="type">
+          <li><input class="filter" id="hall" type="checkbox" />Res Hall</li>
+          <li>
+            <input class="filter" id="college" type="checkbox" />Res College
+          </li>
+          <li>
+            <input class="filter" id="community" type="checkbox" />Res Community
+          </li>
+        </ul>
+
+        <div class="filter-option">Miscellaneous perks</div>
+        <ul class="AC">
+          <li><input class="filter" id="AC" type="checkbox" />Has A.C.</li>
+          <li>
+            <input class="filter" id="dining" type="checkbox" />Has dining hall
+          </li>
+        </ul>
+
+        <div class="clear-filter">Clear filters</div>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="filter-wrapper">
+      <div class="about">About the filters</div>
+      <div class="filter-wrapper-flex">
+        <div class="about-filters">
+          <p class="filter-hed">North and South Campus</p>
+          <p>
+            We chose to divide the unofficial "North Campus" and "South Campus"
+            by Foster Street, so anything south of Foster is South Campus and
+            anything north of Foster is North Campus.
+          </p>
+        </div>
+        <div class="about-filters">
+          <p class="filter-hed">Types of halls</p>
+          <p>
+            The university categorizes its halls into four types. A residential
+            community has student-organized events and live-in faculty. A
+            residential college has a theme and offers activities and
+            specialized classes supported by faculty fellows. Special interest
+            housing includes Interfaith Residence Hall in 1835 Hinman, GREEN
+            House and other halls with particular focuses. A residence hall
+            offers a classic college experience.
+          </p>
+        </div>
+        <div class="about-filters">
+          <p class="filter-hed">Gender Open Housing</p>
+          <p>
+            Gender Open Housing has existed since 2010 as "an arrangement
+            whereby students, regardless of sex, gender, or gender identity, are
+            permitted to share a room or suite in select areas of Northwestern’s
+            residence halls." Currently, no first-year students are eligible for
+            gender open housing.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    {% endblock content %} {% block inline_data %}
+    <script>
+      window.ttData = {
+        gutenTag: '{{ context.guten_tag or "subject-politics" }}',
+      };
+    </script>
+    {% endblock inline_data %}
+  </head>
+  <body></body>
+</html>

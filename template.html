@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+
+    <!--imports google fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Roboto:ital,wght@0,400;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <!--imports leaflet-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://drive.google.com/file/d/1X2mOx5UtFbvwQA8UnZEcy474A9zgMJhE"
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+
+    <!--INSERT THE NAME OF THE DORM HERE-->
+    <title>DORM NAME HERE</title>
+    <style>
+      body {
+        font-family: "PT Sans", serif;
+        margin: 0;
+      }
+      .navbar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 7vh;
+        background: #8f68c0;
+        padding: 1vh 0;
+        z-index: 1;
+      }
+      .top-logo {
+        display: flex;
+      }
+
+      .nbn-logo-nav {
+        margin-left: 1vw;
+        height: 100%;
+      }
+      .nbn-path {
+        fill: white;
+        transition: fill 1s ease;
+      }
+      .homepage-link:hover .nbn-path {
+        fill: #b6acd1;
+      }
+
+      .heading-content {
+        margin-top: 150px;
+        text-align: center;
+      }
+      .heading-content h1 {
+        font-family: "Roboto", sans-serif;
+        font-style: italic;
+        font-size: 3em;
+        color: white;
+        background-color: #8f68c0;
+        width: fit-content;
+        display: block;
+        margin: auto;
+        padding: 10px 20px 10px 20px;
+        letter-spacing: 3px;
+      }
+      .heading-content h2 {
+        font-family: "PT Serif", serif;
+      }
+      .flex-grid .col {
+        display: block;
+        margin: auto;
+        margin-top: 0;
+        width: 40%;
+      }
+      .flex-grid {
+        display: flex;
+        margin-top: 20px;
+      }
+      .flex-grid img {
+        width: 100%;
+      }
+      .flex-grid p {
+        margin: 0;
+        font-size: 1.2em;
+        position: absolute;
+        top: 50%;
+      }
+      .main-stats {
+        display: flex;
+        width: 80%;
+        margin: auto;
+        height: fit-content;
+      }
+      .main-stats .col {
+        width: 33.33%;
+        text-align: center;
+        padding: 20px 0px 20px 0px;
+      }
+      .main-stats p {
+        color: white;
+        font-weight: bold;
+        background-color: #8f68c0;
+        width: fit-content;
+        display: block;
+        padding: 10px 20px 10px 20px;
+        margin: auto;
+        letter-spacing: 2px;
+      }
+
+      .map-gallery {
+        height: 600px;
+        background-color: #e2d0fa;
+        display: flex;
+      }
+
+      .vital-stats {
+        display: flex;
+        margin-top: 20px;
+        background-color: #e2d0fa;
+        padding-bottom: 20px;
+      }
+      .vital-stats .col {
+        display: block;
+        margin: auto;
+        margin-top: 0;
+        width: 35%;
+        text-align: center;
+      }
+      .vital-stats h2 {
+        background-color: white;
+        color: #8f68c0;
+        width: fit-content;
+        display: block;
+        margin: auto;
+        margin-top: 50px;
+        padding: 10px 20px 10px 20px;
+        font-family: "Roboto", serif;
+        letter-spacing: 2px;
+      }
+      #mapid {
+        height: 400px;
+        margin-top: 30px;
+      }
+      hr {
+        border: 2px solid white;
+      }
+      p.location {
+        font-weight: bold;
+      }
+      .residents-say {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        width: 80%;
+      }
+      /* Slideshow container */
+      .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+      }
+
+      /* Hide the images by default */
+      .mySlides {
+        display: none;
+      }
+
+      /* Next & previous buttons */
+      .prev,
+      .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+      }
+
+      /* Position the "next button" to the right */
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+
+      /* On hover, add a black background color with a little bit see-through */
+      .prev:hover,
+      .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      /* Caption text */
+      .text {
+        color: #f2f2f2;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+      }
+
+      /* Number text (1/3 etc) */
+      .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+      }
+      /* Fading animation */
+      .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+
+      @-webkit-keyframes fade {
+        from {
+          opacity: 0.4;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0.4;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Please don't touch anything in this nav tag! -->
+    <nav class="navbar">
+      <a
+        class="homepage-link"
+        href="https://northbynorthwestern.com/magazine-current/"
+      >
+        <svg
+          version="1.0"
+          xmlns="http://www.w3.org/2000/svg"
+          class="nbn-logo-nav"
+          viewBox="0 0 1024.000000 1024.000000"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <g
+            class="svg-path nbn-path"
+            transform="translate(0.000000,1024.000000) scale(0.100000,-0.100000)"
+            fill="currentColor"
+            stroke="none"
+          >
+            <path
+              d="M4940 9953 c-891 -34 -1755 -309 -2480 -788 -714 -472 -1315 -1155        -1690 -1920 -256 -524 -403 -1040 -472 -1665 -20 -181 -17 -778 5 -965 138        -1165 628 -2168 1439 -2950 979 -943 2278 -1447 3551 -1377 361 20 653 64        1008 153 1403 350 2469 1207 3139 2524 267 524 425 1046 497 1635 25 207 25        772 0 985 -156 1312 -712 2376 -1662 3179 -147 125 -295 240 -300 234 -2 -2        155 -307 350 -678 195 -371 355 -678 355 -682 0 -5 -128 -8 -285 -8 l-285 0 0        -2690 0 -2690 -472 2 -471 3 -835 1877 c-459 1033 -838 1875 -843 1872 -5 -3        -9 -795 -9 -1885 l0 -1879 -490 0 -490 0 0 2695 0 2695 676 0 676 0 25 -27        c14 -16 49 -84 80 -153 296 -676 1177 -2651 1184 -2656 5 -3 9 582 9 1415 l0        1421 -255 0 c-140 0 -255 3 -255 6 0 3 194 374 431 825 237 451 433 828 436        838 4 15 -14 29 -84 69 -610 343 -1327 544 -2084 582 -186 9 -229 10 -399 3z"
+            ></path>
+          </g>
+        </svg>
+      </a>
+    </nav>
+
+    <div class="heading-content">
+      <!--INSERT NAME OF DORM HERE-->
+      <h1>560 Lincoln</h1>
+
+      <!--INSERT ADDRESS OF DORM HERE-->
+      <h2>560 Lincoln Street</h2>
+    </div>
+
+    <div class="main-stats">
+      <div class="col">
+        <!-- INSERT SOCIAL RATING HERE -->
+        <p>NBN Social Rating: 5.0/5.0</p>
+      </div>
+      <div class="col">
+        <!-- INSERT PART OF CAMPUS HERE (NORTH/SOUTH/NORTHEAST/SOUTHWEST)-->
+        <p>North Campus</p>
+      </div>
+      <div class="col">
+        <!--INSERT RESIDENTIAL HALL OR COLLEGE HERE-->
+        <p>Residential Hall</p>
+      </div>
+    </div>
+
+    <div class="flex-grid">
+      <div class="col">
+        <div class="slideshow-container">
+          <!-- from https://www.w3schools.com/howto/howto_js_slideshow.asp-->
+          <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img
+              src="https://i.ibb.co/HYgDT2t/lenadorm.png"
+              style="width: 100%"
+            />
+            <div class="text">Caption Two</div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img
+              src="https://i.ibb.co/HYgDT2t/lenadorm.png"
+              style="width: 100%"
+            />
+            <div class="text">Caption Two</div>
+          </div>
+
+          <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img
+              src="https://i.ibb.co/HYgDT2t/lenadorm.png"
+              style="width: 100%"
+            />
+            <div class="text">Caption Three</div>
+          </div>
+
+          <!-- Next and previous buttons -->
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br />
+      </div>
+      <div class="col description">
+        <p>
+          With two-story lounges connecting every floor and full kitchens
+          distributed throughout, 560 Lincoln St. offers residents ample space
+          to gather and build community. The plentiful windows invite residents
+          to take a breath and enjoy great views of Lake Michigan, even from
+          some of the laundry rooms. 560 Lincoln St. is also home to a large
+          multi-function room used for social events as well as classes and
+          tutoring.
+        </p>
+      </div>
+    </div>
+
+    <div class="vital-stats">
+      <div class="col">
+        <h2>VITAL STATS</h2>
+        <!--NUMBER OF RESIDENTS -->
+        <p>_ Doubles + _ Singles + _ Triples</p>
+        <p>= 120 Residents</p>
+        <hr />
+        <p>Air Conditioning</p>
+        <p>$10545 per single/year</p>
+        <p>$8829 per double/year</p>
+        <hr />
+        <p class="location">12 Minute Walk to Tech</p>
+        <p class="location">6 Minute Walk to Norris</p>
+        <p class="location">12 Minute Walk to The Arch</p>
+      </div>
+      <div class="col">
+        <div id="mapid"></div>
+      </div>
+    </div>
+
+    <div class="residents-say">
+      <div class="row"><h2>What Residents Say</h2></div>
+      <div class="row">
+        <div class="col">
+          <p>
+            Vivamus arcu urna, iaculis quis dictum a, semper et lorem. Curabitur
+            tempor euismod urna eu varius. Aenean mattis elit eget nunc
+            hendrerit, eget dapibus mauris maximus. Suspendisse placerat dapibus
+            vehicula. Curabitur efficitur viverra neque non consectetur. Etiam
+            faucibus euismod aliquet. Cras pharetra, justo in feugiat cursus,
+            lectus mi vulputate metus, a ullamcorper eros massa ut erat. Duis
+            leo sapien, vehicula ac lacinia vel, auctor non diam. Pellentesque
+            sem libero, rhoncus a lacus vel, tincidunt convallis ligula.
+          </p>
+        </div>
+        <div class="col">
+          Vivamus arcu urna, iaculis quis dictum a, semper et lorem. Curabitur
+          tempor euismod urna eu varius. Aenean mattis elit eget nunc hendrerit,
+          eget dapibus mauris maximus. Suspendisse placerat dapibus vehicula.
+          Curabitur efficitur viverra neque non consectetur. Etiam faucibus
+          euismod aliquet. Cras pharetra, justo in feugiat cursus, lectus mi
+          vulputate metus, a ullamcorper eros massa ut erat. Duis leo sapien,
+          vehicula ac lacinia vel, auctor non diam. Pellentesque sem libero,
+          rhoncus a lacus vel, tincidunt convallis ligula.
+        </div>
+      </div>
+    </div>
+    <script>
+      //slideshow
+      var slideIndex = 1;
+      showSlides(slideIndex);
+
+      // Next/previous controls
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      // Thumbnail image controls
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slides[slideIndex - 1].style.display = "block";
+      }
+      //leaflet
+      var mymap = L.map("mapid").setView(
+        [42.06133942273356, -87.67570603317846],
+        30
+      );
+      L.tileLayer(
+        "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
+        {
+          attribution:
+            'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+          maxZoom: 18,
+          id: "mapbox/satellite-v9",
+          tileSize: 512,
+          zoomOffset: -1,
+          accessToken:
+            "pk.eyJ1IjoiYW15ZWd1byIsImEiOiJja29nNHNxNGUwYW5zMnBveXRqN3pxazlhIn0.kEu6X8ASKTQfeWGUzaRIKQ",
+        }
+      ).addTo(mymap);
+      var marker = L.marker([42.06133942273356, -87.67570603317846]).addTo(
+        mymap
+      );
+
+      marker.bindPopup("<h3>560 Lincoln</h3>").openPopup();
+    </script>
+  </body>
+</html>
