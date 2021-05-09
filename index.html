@@ -5,9 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script>
-      const dorms = require("dorms.json");
-    </script>
 
     <nav title="navigation">
       <div id="global-header">
@@ -19,7 +16,6 @@
               title="North by Northwestern"
               target="_top"
             >
-              <img src="assets/nbn-white.png" />
             </a>
           </div>
         </div>
@@ -36,23 +32,6 @@
             <td>Size</td>
             <td>Type</td>
           </thead>
-          <tbody>
-            {% for item in dorms %}
-            <tr
-              class="dorm-row"
-              data-fullname="{{ item.name }}"
-              data-marker="{{ loop.index0 }}"
-            >
-              <td>
-                <p class="dorm-name">
-                  <a href="/{{ item.slug }}">{{ item.short_name }}</a>
-                </p>
-              </td>
-              <td><p class="dorm-size">{{ item.size }}</p></td>
-              <td><p class="dorm-type">{{ item.dorm_type }}</p></td>
-            </tr>
-            {% endfor %}
-          </tbody>
         </table>
       </div>
 
@@ -136,14 +115,7 @@
     </div>
 
     <hr />
-
-    {% endblock content %} {% block inline_data %}
-    <script>
-      window.ttData = {
-        gutenTag: '{{ context.guten_tag or "subject-politics" }}',
-      };
-    </script>
-    {% endblock inline_data %}
+    <script src="main.js"></script>
   </head>
   <body></body>
 </html>

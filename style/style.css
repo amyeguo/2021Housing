@@ -129,6 +129,9 @@ hr {
 p.location {
   font-weight: bold;
 }
+.resident-heading {
+  text-align: center;
+}
 .residents-say {
   display: flex;
   margin-top: 20px;
@@ -137,6 +140,12 @@ p.location {
   display: block;
   margin: auto;
   width: 40%;
+}
+.credits {
+  background-color: #8f68c0;
+  text-align: center;
+  color: white;
+  padding: 30px;
 }
 /* Slideshow container */
 .slideshow-container {
@@ -183,9 +192,11 @@ p.location {
 .text {
   color: #f2f2f2;
   font-size: 15px;
-  padding: 8px 12px;
+  text-shadow: 1px 1px black;
+  background-color: #8f68c0;
+  font-family: "PT Sans", serif;
   position: absolute;
-  bottom: 8px;
+  bottom: 4px;
   width: 100%;
   text-align: center;
 }
