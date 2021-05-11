@@ -126,6 +126,9 @@ body {
 hr {
   border: 2px solid white;
 }
+a.room-rates {
+  color: black;
+}
 p.location {
   font-weight: bold;
 }
@@ -191,7 +194,7 @@ p.location {
 /* Caption text */
 .text {
   color: #f2f2f2;
-  font-size: 15px;
+  font-size: 20px;
   text-shadow: 1px 1px black;
   background-color: #8f68c0;
   font-family: "PT Sans", serif;

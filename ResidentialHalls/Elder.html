@@ -197,7 +197,7 @@
     ></script>
 
     <!--INSERT THE NAME OF THE DORM HERE-->
-    <title>560 Lincoln</title>
+    <title>Elder Hall</title>
   </head>
   <body>
     <!-- Please don't touch anything in this nav tag! -->
@@ -230,17 +230,17 @@
     <div class="heading-content">
       <a
         class="res-services-link"
-        href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/560-lincoln.html"
+        href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/elder.html"
         target="_blank"
       >
-        <h1>560 Lincoln</h1></a
+        <h1>Elder Hall</h1></a
       >
-      <h2>560 Lincoln St, Evanston, IL 60201</h2>
+      <h2>2400 Sheridan Rd, Evanston, IL 60201</h2>
     </div>
 
     <div class="main-stats">
       <div class="col">
-        <p>422 Residents</p>
+        <p>345 Residents</p>
       </div>
       <div class="col">
         <p>North Area</p>
@@ -253,21 +253,17 @@
     <div class="flex-grid">
       <div class="col description">
         <p>
-          560 Lincoln is the newest dorm on campus and everyone who doesn't live
-          there should never visit because it looks almost exactly like a hotel
-          and it will make you jealous. This dorm is the first to be built in
-          the housing expansion plan, and it features suite style housing,
-          community lounges, and a multipurpose space. The dorm is seven stories
-          tall with singles and doubles located on the top edge of North Campus,
-          and did I mention that bathrooms are clean and large, the rooms are
-          large, and it's just so pretty? However, every rose has its thorn.
-          Because this dorm is so large and hotel like, the sense of community
-          is lacking and some say it feels a bit elitist.
+          Elder is located on the edge of North Campus and is known for its
+          extremely social atmosphere. Since it’s a very large dorm (very close
+          to the fraternity quad), there’s always something fun going on. With
+          weekly get-togethers for cider and donuts and frequent “Elder
+          Munchies,” there are many opportunities to bond with fellow residents.
+          The dining hall and numerous study rooms are notable amenities.
         </p>
       </div>
       <div class="col">
         <iframe
-          src="https://www.youtube.com/embed/63GN3ZqxRaQ"
+          src="https://www.youtube.com/embed/Jd_Ir7aaNyY"
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -282,8 +278,8 @@
 
         <!--CHANGE AIRCONDITION OR DINING HALL-->
         <p>Air Conditioning</p>
-        <p>Nearest Dining Hall: Elder</p>
-        <p>Suite-style Bathrooms</p>
+        <p>Doubles as Dining Hall</p>
+        <p>Community-style Bathrooms</p>
 
         <!--CHANGE COST HERE-->
         <hr />
@@ -297,13 +293,13 @@
           >
         </p>
         <p>$12,195 per single/year</p>
-        <p>$10,881 per double/year</p>
+        <p>$10,212 per double/year</p>
         <hr />
 
         <!-- CHANGE WALK TIME HERE -->
-        <p class="location">8 Minute Walk to Tech</p>
-        <p class="location">14 Minute Walk to Norris</p>
-        <p class="location">16 Minute Walk to The Rock</p>
+        <p class="location">6 Minute Walk to Tech</p>
+        <p class="location">13 Minute Walk to Norris</p>
+        <p class="location">14 Minute Walk to The Rock</p>
       </div>
       <div class="col">
         <div id="mapid"></div>
@@ -320,10 +316,7 @@
     </div>
     <script>
       //leaflet
-      var mymap = L.map("mapid").setView(
-        [42.06133942273356, -87.67570603317846],
-        30
-      );
+      var mymap = L.map("mapid").setView([42.06103289, -87.67728019], 30);
       L.tileLayer(
         "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
         {
@@ -337,13 +330,11 @@
             "pk.eyJ1IjoiYW15ZWd1byIsImEiOiJja29nNHNxNGUwYW5zMnBveXRqN3pxazlhIn0.kEu6X8ASKTQfeWGUzaRIKQ",
         }
       ).addTo(mymap);
-      var marker = L.marker([42.06133942273356, -87.67570603317846]).addTo(
-        mymap
-      );
+      var marker = L.marker([42.06103289, -87.67728019]).addTo(mymap);
 
       marker
         .bindPopup(
-          "<a href='https://goo.gl/maps/trXvAesWnipY7s2g8' target='_blank'> <h3>560 Lincoln</h3> </a>"
+          "<a href='https://goo.gl/maps/Z5Qg83LufrRtcjZe8' target='_blank'> <h3>Elder Hall</h3> </a>"
         )
         .openPopup();
     </script>

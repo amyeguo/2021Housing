@@ -197,7 +197,7 @@
     ></script>
 
     <!--INSERT THE NAME OF THE DORM HERE-->
-    <title>560 Lincoln</title>
+    <title>Foster-Walker Complex</title>
   </head>
   <body>
     <!-- Please don't touch anything in this nav tag! -->
@@ -230,20 +230,20 @@
     <div class="heading-content">
       <a
         class="res-services-link"
-        href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/560-lincoln.html"
+        href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/foster-walker-plex.html"
         target="_blank"
       >
-        <h1>560 Lincoln</h1></a
+        <h1>Foster-Walker (PLEX)</h1></a
       >
-      <h2>560 Lincoln St, Evanston, IL 60201</h2>
+      <h2>1927 Orrington Avenue, Evanston, IL 60201</h2>
     </div>
 
     <div class="main-stats">
       <div class="col">
-        <p>422 Residents</p>
+        <p>582 Residents</p>
       </div>
       <div class="col">
-        <p>North Area</p>
+        <p>Southwest Area</p>
       </div>
       <div class="col">
         <p>Residential Hall</p>
@@ -253,24 +253,19 @@
     <div class="flex-grid">
       <div class="col description">
         <p>
-          560 Lincoln is the newest dorm on campus and everyone who doesn't live
-          there should never visit because it looks almost exactly like a hotel
-          and it will make you jealous. This dorm is the first to be built in
-          the housing expansion plan, and it features suite style housing,
-          community lounges, and a multipurpose space. The dorm is seven stories
-          tall with singles and doubles located on the top edge of North Campus,
-          and did I mention that bathrooms are clean and large, the rooms are
-          large, and it's just so pretty? However, every rose has its thorn.
-          Because this dorm is so large and hotel like, the sense of community
-          is lacking and some say it feels a bit elitist.
+          Foster-Walker (usually called PLEX), is located right in the middle of
+          campus and is the only all-single residence hall on campus. Men and
+          women live in the gender-clustered 582 single rooms, with one bathroom
+          for every four rooms. The first floor of the building has two dining
+          halls and a c-store, and the package centre for South Campus is in the
+          basement.
         </p>
       </div>
       <div class="col">
         <iframe
-          src="https://www.youtube.com/embed/63GN3ZqxRaQ"
-          title="YouTube video player"
+          src="https://player.vimeo.com/video/219804294"
           frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allow="autoplay; fullscreen; picture-in-picture"
           allowfullscreen
         ></iframe>
       </div>
@@ -282,8 +277,8 @@
 
         <!--CHANGE AIRCONDITION OR DINING HALL-->
         <p>Air Conditioning</p>
-        <p>Nearest Dining Hall: Elder</p>
-        <p>Suite-style Bathrooms</p>
+        <p>Doubles as Dining Hall</p>
+        <p>Community-style Bathrooms</p>
 
         <!--CHANGE COST HERE-->
         <hr />
@@ -297,13 +292,12 @@
           >
         </p>
         <p>$12,195 per single/year</p>
-        <p>$10,881 per double/year</p>
         <hr />
 
         <!-- CHANGE WALK TIME HERE -->
-        <p class="location">8 Minute Walk to Tech</p>
-        <p class="location">14 Minute Walk to Norris</p>
-        <p class="location">16 Minute Walk to The Rock</p>
+        <p class="location">9 Minute Walk to Tech</p>
+        <p class="location">7 Minute Walk to Norris</p>
+        <p class="location">5 Minute Walk to The Rock</p>
       </div>
       <div class="col">
         <div id="mapid"></div>
@@ -320,10 +314,7 @@
     </div>
     <script>
       //leaflet
-      var mymap = L.map("mapid").setView(
-        [42.06133942273356, -87.67570603317846],
-        30
-      );
+      var mymap = L.map("mapid").setView([42.05298388, -87.67817516], 30);
       L.tileLayer(
         "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
         {
@@ -337,13 +328,11 @@
             "pk.eyJ1IjoiYW15ZWd1byIsImEiOiJja29nNHNxNGUwYW5zMnBveXRqN3pxazlhIn0.kEu6X8ASKTQfeWGUzaRIKQ",
         }
       ).addTo(mymap);
-      var marker = L.marker([42.06133942273356, -87.67570603317846]).addTo(
-        mymap
-      );
+      var marker = L.marker([42.05298388, -87.67817516]).addTo(mymap);
 
       marker
         .bindPopup(
-          "<a href='https://goo.gl/maps/trXvAesWnipY7s2g8' target='_blank'> <h3>560 Lincoln</h3> </a>"
+          "<a href='https://goo.gl/maps/UQppgkRCxToMksL6A' target='_blank'> <h3>PLEX</h3> </a>"
         )
         .openPopup();
     </script>

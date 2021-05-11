@@ -22,7 +22,258 @@
       rel="stylesheet"
       href="https://drive.google.com/file/d/1X2mOx5UtFbvwQA8UnZEcy474A9zgMJhE"
     />
-    <link rel="stylesheet" href="/style/style.css" />
+    <style>
+      body {
+        font-family: "PT Sans", serif;
+        margin: 0;
+      }
+      .navbar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 7vh;
+        background: #8f68c0;
+        padding: 1vh 0;
+        z-index: 3;
+      }
+      .top-logo {
+        display: flex;
+      }
+
+      .nbn-logo-nav {
+        margin-left: 1vw;
+        height: 100%;
+      }
+      .nbn-path {
+        fill: white;
+        transition: fill 1s ease;
+      }
+      .homepage-link:hover .nbn-path {
+        fill: #b6acd1;
+      }
+
+      .heading-content {
+        margin-top: 150px;
+        text-align: center;
+      }
+      .heading-content h1 {
+        font-family: "Roboto", sans-serif;
+        font-style: italic;
+        font-size: 3em;
+        color: white;
+        background-color: #8f68c0;
+        width: fit-content;
+        display: block;
+        margin: auto;
+        padding: 10px 20px 10px 20px;
+        letter-spacing: 3px;
+      }
+      .heading-content h2 {
+        font-family: "PT Serif", serif;
+      }
+      .res-services-link {
+        text-decoration: none;
+      }
+      .flex-grid .col {
+        display: block;
+        margin: auto;
+        margin-top: 0;
+        width: 40%;
+      }
+      .flex-grid {
+        display: flex;
+        margin-top: 20px;
+      }
+      .flex-grid img {
+        width: 100%;
+      }
+      .flex-grid p {
+        margin: 0;
+      }
+      .main-stats {
+        display: flex;
+        width: 80%;
+        margin: auto;
+        height: fit-content;
+      }
+      .main-stats .col {
+        width: 33.33%;
+        text-align: center;
+        padding: 20px 0px 20px 0px;
+      }
+      .main-stats p {
+        color: white;
+        font-weight: bold;
+        background-color: #8f68c0;
+        width: fit-content;
+        display: block;
+        padding: 10px 20px 10px 20px;
+        margin: auto;
+        letter-spacing: 2px;
+      }
+
+      .map-gallery {
+        height: 600px;
+        background-color: #e2d0fa;
+        display: flex;
+      }
+
+      .vital-stats {
+        display: flex;
+        margin-top: 20px;
+        background-color: #e2d0fa;
+        padding-bottom: 20px;
+      }
+      .vital-stats .col {
+        display: block;
+        margin: auto;
+        margin-top: 0;
+        width: 35%;
+        text-align: center;
+      }
+      .vital-stats h2 {
+        background-color: white;
+        color: #8f68c0;
+        width: fit-content;
+        display: block;
+        margin: auto;
+        margin-top: 50px;
+        padding: 10px 20px 10px 20px;
+        font-family: "Roboto", serif;
+        letter-spacing: 2px;
+      }
+      #mapid {
+        height: 400px;
+        margin-top: 30px;
+        z-index: 1;
+      }
+      hr {
+        border: 2px solid white;
+      }
+      a.room-rates {
+        color: black;
+      }
+      p.location {
+        font-weight: bold;
+      }
+      .resident-heading {
+        text-align: center;
+      }
+      .residents-say {
+        display: flex;
+        margin-top: 20px;
+      }
+      .residents-say .col {
+        display: block;
+        margin: auto;
+        width: 40%;
+      }
+      .credits {
+        background-color: #8f68c0;
+        text-align: center;
+        color: white;
+        padding: 30px;
+      }
+      /* Slideshow container */
+      .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+      }
+
+      /* Hide the images by default */
+      .mySlides {
+        display: none;
+      }
+
+      /* Next & previous buttons */
+      .prev,
+      .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+      }
+
+      /* Position the "next button" to the right */
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+
+      /* On hover, add a black background color with a little bit see-through */
+      .prev:hover,
+      .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      /* Caption text */
+      .text {
+        color: #f2f2f2;
+        font-size: 20px;
+        text-shadow: 1px 1px black;
+        background-color: #8f68c0;
+        font-family: "PT Sans", serif;
+        position: absolute;
+        bottom: 4px;
+        width: 100%;
+        text-align: center;
+      }
+
+      /* Number text (1/3 etc) */
+      .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+      }
+      /* Fading animation */
+      .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+
+      @-webkit-keyframes fade {
+        from {
+          opacity: 0.4;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0.4;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @media (max-width: 800px) {
+        .flex-grid {
+          flex-direction: column;
+        }
+        .flex-grid .col {
+          width: 70%;
+        }
+        .main-stats .col {
+          margin: 10px;
+        }
+      }
+    </style>
     <script
       src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
       integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
@@ -36,7 +287,7 @@
     <nav class="navbar">
       <a
         class="homepage-link"
-        href="https://northbynorthwestern.com/magazine-current/"
+        href="https://northbynorthwestern.com/housing-guide-2021/"
       >
         <svg
           version="1.0"
@@ -75,8 +326,8 @@
 
     <div class="main-stats">
       <div class="col">
-        <!--CHANGE SOCIAL RATING-->
-        <p>NBN Social Rating: {SOCIAL RATING HERE}/5.0</p>
+        <!--CHANGE NUM RESIDENTS-->
+        <p>{INSERT NUM RESIDENTS} Residents</p>
       </div>
       <div class="col">
         <!--CHANGE AREA (NORTH,SOUTH,SOUTHWEST,NORTHEAST)-->
@@ -132,15 +383,22 @@
     <div class="vital-stats">
       <div class="col">
         <h2>VITAL STATS</h2>
-        <!--NUMBER OF RESIDENTS -->
-        <p>{NUM RESIDENTS HERE} Residents</p>
-        <hr />
 
         <!--CHANGE AIRCONDITION OR DINING HALL-->
         <p>{INSERT NO OR LEAVE BLANK IF YES} Air Conditioning</p>
         <p>{INSERT NO OR LEAVE BLANK IF YES} Dining Hall</p>
 
         <!--CHANGE COST HERE-->
+        <hr />
+        <p class="location">
+          Rates from
+          <a
+            class="room-rates"
+            href="https://www.northwestern.edu/living/incoming-undergraduates/undergraduate-room-rates.html"
+            target="_blank"
+            >2020-21 school year</a
+          >
+        </p>
         <p>{INSERT} per single/year</p>
         <p>{INSERT} per double/year</p>
         <hr />

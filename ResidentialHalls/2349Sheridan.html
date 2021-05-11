@@ -83,16 +83,13 @@
       }
       .flex-grid {
         display: flex;
-        flex-direction: column;
         margin-top: 20px;
       }
-
-      iframe {
-        display: block;
-        margin: 0 auto;
+      .flex-grid img {
         width: 100%;
-        height: 400px;
-        border: 20px solid #8f68c0;
+      }
+      .flex-grid p {
+        margin: 0;
       }
       .main-stats {
         display: flex;
@@ -178,6 +175,93 @@
         color: white;
         padding: 30px;
       }
+      /* Slideshow container */
+      .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+      }
+
+      /* Hide the images by default */
+      .mySlides {
+        display: none;
+      }
+
+      /* Next & previous buttons */
+      .prev,
+      .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        margin-top: -22px;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 0 3px 3px 0;
+        user-select: none;
+      }
+
+      /* Position the "next button" to the right */
+      .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+      }
+
+      /* On hover, add a black background color with a little bit see-through */
+      .prev:hover,
+      .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+
+      /* Caption text */
+      .text {
+        color: #f2f2f2;
+        font-size: 20px;
+        text-shadow: 1px 1px black;
+        background-color: #8f68c0;
+        font-family: "PT Sans", serif;
+        position: absolute;
+        bottom: 4px;
+        width: 100%;
+        text-align: center;
+      }
+
+      /* Number text (1/3 etc) */
+      .numbertext {
+        color: #f2f2f2;
+        font-size: 12px;
+        padding: 8px 12px;
+        position: absolute;
+        top: 0;
+      }
+      /* Fading animation */
+      .fade {
+        -webkit-animation-name: fade;
+        -webkit-animation-duration: 1.5s;
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+
+      @-webkit-keyframes fade {
+        from {
+          opacity: 0.4;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0.4;
+        }
+        to {
+          opacity: 1;
+        }
+      }
       @media (max-width: 800px) {
         .flex-grid {
           flex-direction: column;
@@ -197,10 +281,9 @@
     ></script>
 
     <!--INSERT THE NAME OF THE DORM HERE-->
-    <title>560 Lincoln</title>
+    <title>2349 Sheridan</title>
   </head>
   <body>
-    <!-- Please don't touch anything in this nav tag! -->
     <nav class="navbar">
       <a
         class="homepage-link"
@@ -228,21 +311,26 @@
     </nav>
 
     <div class="heading-content">
+      <!--CHANGE RES SERVICES LINK-->
       <a
         class="res-services-link"
-        href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/560-lincoln.html"
+        href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/2349-sheridan.html"
         target="_blank"
       >
-        <h1>560 Lincoln</h1></a
+        <!--CHANGE NAME OF DORM-->
+        <h1>2349 Sheridan</h1></a
       >
-      <h2>560 Lincoln St, Evanston, IL 60201</h2>
+      <!--CHANGE ADDRESS OF DORM-->
+      <h2>2349 Sheridan Road, Evanston, IL 60201</h2>
     </div>
 
     <div class="main-stats">
       <div class="col">
-        <p>422 Residents</p>
+        <!--CHANGE NUM RESIDENTS-->
+        <p>< 100 Residents</p>
       </div>
       <div class="col">
+        <!--CHANGE AREA (NORTH,SOUTH,SOUTHWEST,NORTHEAST)-->
         <p>North Area</p>
       </div>
       <div class="col">
@@ -252,27 +340,14 @@
 
     <div class="flex-grid">
       <div class="col description">
+        <!--CHANGE BLURB-->
         <p>
-          560 Lincoln is the newest dorm on campus and everyone who doesn't live
-          there should never visit because it looks almost exactly like a hotel
-          and it will make you jealous. This dorm is the first to be built in
-          the housing expansion plan, and it features suite style housing,
-          community lounges, and a multipurpose space. The dorm is seven stories
-          tall with singles and doubles located on the top edge of North Campus,
-          and did I mention that bathrooms are clean and large, the rooms are
-          large, and it's just so pretty? However, every rose has its thorn.
-          Because this dorm is so large and hotel like, the sense of community
-          is lacking and some say it feels a bit elitist.
+          2349 Sheridan Rd. has a unique floor plan with lounge areas included
+          in each suite. The first floor is home to both a pool table and piano,
+          as well as a TV lounge. Residents make good use of the basement, which
+          is often filled with students spending time together and cooking in
+          the kitchen.
         </p>
-      </div>
-      <div class="col">
-        <iframe
-          src="https://www.youtube.com/embed/63GN3ZqxRaQ"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
       </div>
     </div>
 
@@ -281,9 +356,9 @@
         <h2>VITAL STATS</h2>
 
         <!--CHANGE AIRCONDITION OR DINING HALL-->
-        <p>Air Conditioning</p>
+        <p>No Air Conditioning</p>
         <p>Nearest Dining Hall: Elder</p>
-        <p>Suite-style Bathrooms</p>
+        <p>Community-style Bathrooms</p>
 
         <!--CHANGE COST HERE-->
         <hr />
@@ -296,14 +371,13 @@
             >2020-21 school year</a
           >
         </p>
-        <p>$12,195 per single/year</p>
-        <p>$10,881 per double/year</p>
+        <p>$10,212 per double/year</p>
         <hr />
 
         <!-- CHANGE WALK TIME HERE -->
-        <p class="location">8 Minute Walk to Tech</p>
-        <p class="location">14 Minute Walk to Norris</p>
-        <p class="location">16 Minute Walk to The Rock</p>
+        <p class="location">6 Minute Walk to Tech</p>
+        <p class="location">13 Minute Walk to Norris</p>
+        <p class="location">14 Minute Walk to The Arch</p>
       </div>
       <div class="col">
         <div id="mapid"></div>
@@ -311,17 +385,14 @@
     </div>
 
     <div class="credits">
-      <p>
-        Information from the 2017, 2018, & 2019 NBN Housing Guides and
-        Northwestern Residential Services
-      </p>
-      <p>Video from NBN 2018 Housing Guide</p>
+      <p>Information from Northwestern Residential Services</p>
       <p>Designed by Nathanial Ortiz & Developed by Amy Guo</p>
     </div>
     <script>
       //leaflet
       var mymap = L.map("mapid").setView(
-        [42.06133942273356, -87.67570603317846],
+        //CHANGE COORDINATES HERE
+        [42.06130671, -87.6761558],
         30
       );
       L.tileLayer(
@@ -337,13 +408,12 @@
             "pk.eyJ1IjoiYW15ZWd1byIsImEiOiJja29nNHNxNGUwYW5zMnBveXRqN3pxazlhIn0.kEu6X8ASKTQfeWGUzaRIKQ",
         }
       ).addTo(mymap);
-      var marker = L.marker([42.06133942273356, -87.67570603317846]).addTo(
-        mymap
-      );
+      //CHANGE COORDINATES HERE
+      var marker = L.marker([42.06130671, -87.6761558]).addTo(mymap);
 
       marker
         .bindPopup(
-          "<a href='https://goo.gl/maps/trXvAesWnipY7s2g8' target='_blank'> <h3>560 Lincoln</h3> </a>"
+          "<a href='https://goo.gl/maps/E6UTkXFopvG7BnJN9' target='_blank'> <h3>2349 Sheridan</h3> </a>"
         )
         .openPopup();
     </script>

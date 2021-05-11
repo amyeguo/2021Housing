@@ -1,0 +1,106 @@
+body {
+  font-family: "PT Sans", serif;
+  margin: 0;
+}
+.navbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 7vh;
+  background: #8f68c0;
+  padding: 1vh 0;
+  z-index: 3;
+}
+.top-logo {
+  display: flex;
+}
+
+.nbn-logo-nav {
+  margin-left: 1vw;
+  height: 100%;
+}
+.nbn-path {
+  fill: white;
+  transition: fill 1s ease;
+}
+.homepage-link:hover .nbn-path {
+  fill: #b6acd1;
+}
+.heading {
+  margin-top: 100px;
+  padding-left: 20px;
+  width: 60%;
+}
+.heading h1 {
+  font-size: 3em;
+  margin: 0;
+}
+#mapid {
+  height: 600px;
+  z-index: 1;
+}
+.wrapper {
+  display: flex;
+}
+.wrapper .col1,
+.col2,
+.col3 {
+  display: block;
+  margin: auto;
+  margin-top: 0;
+  border: 1px solid black;
+}
+table {
+  margin: auto;
+  border-collapse: collapse;
+}
+tr:hover {
+  background-color: #b6acd1;
+}
+table,
+tbody,
+td,
+tr {
+  border: none;
+}
+.table-headings {
+  border-bottom: 3px solid #8f68c0;
+  text-align: left;
+}
+.table-headings:hover {
+  background-color: transparent;
+}
+.wrapper .col1 {
+  width: 25%;
+}
+.wrapper .col2 {
+  width: 45%;
+}
+.wrapper .col3 {
+  width: 25%;
+}
+.wrapper li {
+  list-style: none;
+}
+.filter-option {
+  font-weight: bold;
+}
+@media (max-width: 800px) {
+  .wrapper {
+    flex-direction: column;
+  }
+  .wrapper .col1 {
+    width: 80%;
+  }
+  .wrapper .col2 {
+    width: 100%;
+    height: fit-content;
+    margin-top: 0;
+  }
+  .wrapper .col3 {
+    width: 100%;
+    height: fit-content;
+    margin-top: 0;
+  }
+}

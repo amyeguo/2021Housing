@@ -4,79 +4,406 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
 
-    <nav title="navigation">
-      <div id="global-header">
-        <div id="global-branding">
-          <div class="navbar-nbn-logo">
-            <a
-              class="navbar-brand"
-              href="http://www.northbynorthwestern.com/"
-              title="North by Northwestern"
-              target="_top"
-            >
-            </a>
-          </div>
-        </div>
-      </div>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+
+    <!--imports google fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Roboto:ital,wght@0,400;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <!--imports leaflet-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://drive.google.com/file/d/1X2mOx5UtFbvwQA8UnZEcy474A9zgMJhE"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+
+    <title>2021 Housing Guide</title>
+  </head>
+  <body>
+    <nav class="navbar">
+      <a
+        class="homepage-link"
+        href="https://northbynorthwestern.com/housing-guide-2021/"
+      >
+        <svg
+          version="1.0"
+          xmlns="http://www.w3.org/2000/svg"
+          class="nbn-logo-nav"
+          viewBox="0 0 1024.000000 1024.000000"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <g
+            class="svg-path nbn-path"
+            transform="translate(0.000000,1024.000000) scale(0.100000,-0.100000)"
+            fill="currentColor"
+            stroke="none"
+          >
+            <path
+              d="M4940 9953 c-891 -34 -1755 -309 -2480 -788 -714 -472 -1315 -1155        -1690 -1920 -256 -524 -403 -1040 -472 -1665 -20 -181 -17 -778 5 -965 138        -1165 628 -2168 1439 -2950 979 -943 2278 -1447 3551 -1377 361 20 653 64        1008 153 1403 350 2469 1207 3139 2524 267 524 425 1046 497 1635 25 207 25        772 0 985 -156 1312 -712 2376 -1662 3179 -147 125 -295 240 -300 234 -2 -2        155 -307 350 -678 195 -371 355 -678 355 -682 0 -5 -128 -8 -285 -8 l-285 0 0        -2690 0 -2690 -472 2 -471 3 -835 1877 c-459 1033 -838 1875 -843 1872 -5 -3        -9 -795 -9 -1885 l0 -1879 -490 0 -490 0 0 2695 0 2695 676 0 676 0 25 -27        c14 -16 49 -84 80 -153 296 -676 1177 -2651 1184 -2656 5 -3 9 582 9 1415 l0        1421 -255 0 c-140 0 -255 3 -255 6 0 3 194 374 431 825 237 451 433 828 436        838 4 15 -14 29 -84 69 -610 343 -1327 544 -2084 582 -186 9 -229 10 -399 3z"
+            ></path>
+          </g>
+        </svg>
+      </a>
     </nav>
+    <div class="heading">
+      <h1>THE HOUSING GUIDE 2021</h1>
+      <p>
+        Your first college home can be a taste of freedom and provide you with a
+        great community, but the housing selection process can also be daunting.
+        North by Northwestern's Freshman Housing Guide has you covered. Use the
+        filters to see which buildings work for you, then click a building name
+        to see video, photos and more.
+      </p>
+    </div>
+    <hr />
 
     <div class="wrapper">
-      <div id="mapid"></div>
+      <!--leaflet map-->
+      <div class="col1"><div id="mapid"></div></div>
 
-      <div class="dorm-list-wrapper">
-        <table class="dorms-list">
+      <!--table for dorms-->
+      <div class="col2">
+        <table>
           <thead>
-            <td>Dorm</td>
-            <td>Size</td>
-            <td>Type</td>
+            <tr class="table-headings">
+              <th>Dorm Name</th>
+              <th>Size</th>
+              <th>Dorm Type</th>
+            </tr>
           </thead>
+          <tbody>
+            <tr>
+              <td>
+                <a
+                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/1838-chicago.html"
+                  >1838 Chicago Ave.</a
+                >
+              </td>
+              <td>120</td>
+              <td>Residence Hall</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-colleges/2303-sheridan-ccs.html"
+                  >2303 Sheridan Rd.
+                </a>
+              </td>
+              <td>40</td>
+              <td>Residential College</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/2303-sheridan-rd.html"
+                  >2303 Sheridan Rd. (GREEN House)</a
+                >
+              </td>
+              <td>40</td>
+              <td>Residence Hall</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/2349-sheridan.html"
+                  >2349 Sheridan Rd.</a
+                >
+              </td>
+              <td>&lt;100</td>
+              <td>Residence Hall</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/560-lincoln.html"
+                  >560 Lincoln St.</a
+                >
+              </td>
+              <td>422</td>
+              <td>Residence Hall</td>
+            </tr>
+            <tr id="Allison">
+              <td>
+                <a
+                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/allison.html"
+                  >Allison Hall</a
+                >
+              </td>
+              <td>363</td>
+              <td>Residence Hall</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-colleges/ayers.html"
+                  >Ayers Hall</a
+                >
+              </td>
+              <td>170</td>
+              <td>Residential College</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/bobb-hall.html"
+                  >Bobb</a
+                >-McCulloch Hall
+              </td>
+              <td>496</td>
+              <td>Residence Hall</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-colleges/chapin-hall.html"
+                  >Chapin Hall
+                </a>
+              </td>
+              <td>72</td>
+              <td>Residential College</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-colleges/east-fairchild.html"
+                  >East Fairchild</a
+                >
+              </td>
+              <td>109</td>
+              <td>Residential College</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/elder.html"
+                  >Elder Hall</a
+                >
+              </td>
+              <td>345</td>
+              <td>Residence Hall</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/foster-walker-plex.html"
+                  >Foster-Walker Complex</a
+                >
+              </td>
+              <td>49</td>
+              <td>Residence Hall</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-colleges/hobart-house.html"
+                  >Hobart House
+                </a>
+              </td>
+              <td>50</td>
+              <td>Residential College</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/jones-hall.html"
+                  >Jones Hall</a
+                >
+              </td>
+              <td>121</td>
+              <td>Residence Hall</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/kemper-hall.html"
+                  >Kemper Hall</a
+                >
+              </td>
+              <td>165</td>
+              <td>Residence Hall</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/lindgren-house.html"
+                  >Lindgren House</a
+                >
+              </td>
+              <td>37</td>
+              <td>Residence Hall</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-colleges/parc.html"
+                  >North Mid-Quads</a
+                >
+              </td>
+              <td>88</td>
+              <td>Residential College</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/rogers-house.html"
+                  >Rogers House</a
+                >
+              </td>
+              <td>49</td>
+              <td>Residence Hall</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/sargent-hall.html"
+                  >Sargent Hall</a
+                >
+              </td>
+              <td>157</td>
+              <td>Residence Hall</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/shepard-hall.html"
+                  >Shepard Hall</a
+                >
+              </td>
+              <td>153</td>
+              <td>Residence Hall</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-colleges/slivka.html"
+                  >Slivka Hall</a
+                >
+              </td>
+              <td>140</td>
+              <td>Residential College</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-colleges/south-mid-quads.html"
+                  >South Mid-Quads
+                </a>
+              </td>
+              <td>88</td>
+              <td>Residential College</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-colleges/west-fairchild.html"
+                  >West Fairchild</a
+                >
+              </td>
+              <td>106</td>
+              <td>Residential College</td>
+            </tr>
+            <tr>
+              <td>
+                <a
+                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-colleges/willard.html"
+                  >Willard Hall
+                </a>
+              </td>
+              <td>261</td>
+              <td>Residential College</td>
+            </tr>
+          </tbody>
         </table>
       </div>
+      <!--filters-->
+      <div class="col3">
+        <div class="filter-dorms">
+          <div class="filter-option">Campus area</div>
+          <ul class="campus-area">
+            <li>
+              <input
+                class="filter"
+                id="north"
+                type="checkbox"
+                value="North"
+              />North area
+            </li>
+            <li>
+              <input class="filter" id="south" type="checkbox" />South area
+            </li>
+            <li>
+              <input class="filter" id="southwest" type="checkbox" />Southwest
+              area
+            </li>
+            <li>
+              <input class="filter" id="northeast" type="checkbox" />Northeast
+              area
+            </li>
+          </ul>
 
-      <div class="filter-dorms">
-        <div class="filter-option">Campus area</div>
-        <ul class="campus-area">
-          <li>
-            <input class="filter" id="north" type="checkbox" />North campus
-          </li>
-          <li>
-            <input class="filter" id="south" type="checkbox" />South campus
-          </li>
-        </ul>
+          <div class="filter-option">Dorm size</div>
+          <ul class="size">
+            <li>
+              <input class="filter" id="small" type="checkbox" />Small (< 100
+              residents)
+            </li>
+            <li>
+              <input class="filter" id="medium" type="checkbox" />Medium
+              (100-200 residents)
+            </li>
+            <li>
+              <input class="filter" id="large" type="checkbox" />Large (> 200
+              residents)
+            </li>
+          </ul>
 
-        <div class="filter-option">Dorm size</div>
-        <ul class="size">
-          <li><input class="filter" id="small" type="checkbox" />Small</li>
-          <li><input class="filter" id="medium" type="checkbox" />Medium</li>
-          <li><input class="filter" id="large" type="checkbox" />Large</li>
-        </ul>
+          <div class="filter-option">Type of dorm</div>
+          <ul class="type">
+            <li><input class="filter" id="hall" type="checkbox" />Res Hall</li>
+            <li>
+              <input class="filter" id="college" type="checkbox" />Res College
+            </li>
+          </ul>
 
-        <div class="filter-option">Type of dorm</div>
-        <ul class="type">
-          <li><input class="filter" id="hall" type="checkbox" />Res Hall</li>
-          <li>
-            <input class="filter" id="college" type="checkbox" />Res College
-          </li>
-          <li>
-            <input class="filter" id="community" type="checkbox" />Res Community
-          </li>
-        </ul>
+          <div class="filter-option">Miscellaneous perks</div>
+          <ul class="AC">
+            <li><input class="filter" id="AC" type="checkbox" />Has A.C.</li>
+            <li>
+              <input class="filter" id="dining" type="checkbox" />Has dining
+              hall
+            </li>
+            <li>
+              <input class="filter" id="bathroom" type="checkbox" />Suite-style
+              bathroom
+            </li>
+            <li>
+              <input class="filter" id="gender" type="checkbox" />All-gender
+              housing
+            </li>
+          </ul>
 
-        <div class="filter-option">Miscellaneous perks</div>
-        <ul class="AC">
-          <li><input class="filter" id="AC" type="checkbox" />Has A.C.</li>
-          <li>
-            <input class="filter" id="dining" type="checkbox" />Has dining hall
-          </li>
-        </ul>
-
-        <div class="clear-filter">Clear filters</div>
+          <button id="search">Search</button>
+        </div>
       </div>
     </div>
-
     <hr />
+
+    <!--about the filters-->
 
     <div class="filter-wrapper">
       <div class="about">About the filters</div>
@@ -114,8 +441,6 @@
       </div>
     </div>
 
-    <hr />
     <script src="main.js"></script>
-  </head>
-  <body></body>
+  </body>
 </html>
