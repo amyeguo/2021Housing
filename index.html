@@ -24,7 +24,171 @@
       rel="stylesheet"
       href="https://drive.google.com/file/d/1X2mOx5UtFbvwQA8UnZEcy474A9zgMJhE"
     />
-    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        font-family: "PT Sans", serif;
+        margin: 0;
+      }
+      .navbar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 7vh;
+        background: #8f68c0;
+        padding: 1vh 0;
+        z-index: 3;
+      }
+      .top-logo {
+        display: flex;
+      }
+
+      .nbn-logo-nav {
+        margin-left: 1vw;
+        height: 100%;
+      }
+      .nbn-path {
+        fill: white;
+        transition: fill 1s ease;
+      }
+      .homepage-link:hover .nbn-path {
+        fill: #b6acd1;
+      }
+      .heading {
+        margin-top: 100px;
+        padding-left: 20px;
+        width: 60%;
+      }
+      .heading h1 {
+        font-size: 3em;
+        margin: 0;
+      }
+      #mapid {
+        height: 600px;
+        z-index: 1;
+      }
+      .wrapper {
+        display: flex;
+      }
+      .wrapper .col1,
+      .col2,
+      .col3 {
+        display: block;
+        margin: auto;
+        margin-top: 0;
+      }
+      .filter-wrapper h2 {
+        text-align: center;
+        padding-top: 20px;
+        font-family: "Roboto", sans-serif;
+      }
+      .filter-wrapper-flex {
+        display: flex;
+        width: 95%;
+        margin: auto;
+      }
+      .filter-wrapper-flex .about-filters {
+        display: block;
+        width: 30%;
+        margin: 1%;
+        padding: 1%;
+      }
+      table {
+        margin: auto;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      tr:hover {
+        background-color: #b6acd1;
+      }
+      td {
+        padding: 3px;
+      }
+      tr {
+        border-bottom: 1px solid #b6acd1;
+      }
+      ul {
+        padding: 0;
+      }
+      #search {
+        background-color: #8f68c0;
+        color: white;
+        padding: 5px 20px 5px 20px;
+        border: none;
+        font-size: 1.2em;
+        font-family: "PT Sans", serif;
+        font-weight: bold;
+      }
+      #search:hover {
+        cursor: pointer;
+      }
+      .table-headings {
+        border-bottom: 3px solid #8f68c0;
+        text-align: left;
+      }
+      .table-headings:hover {
+        background-color: transparent;
+      }
+      .wrapper .col1 {
+        width: 25%;
+      }
+      .wrapper .col2 {
+        width: 45%;
+      }
+      .wrapper .col3 {
+        width: 25%;
+      }
+      .wrapper li {
+        list-style: none;
+      }
+      .filter-option {
+        font-weight: bold;
+      }
+      @media (max-width: 800px) {
+        .wrapper {
+          flex-direction: column;
+        }
+        .wrapper .col1 {
+          display: none;
+        }
+        .wrapper .col2 {
+          width: 90%;
+          height: fit-content;
+          margin-top: 0;
+        }
+        .wrapper .col3 {
+          width: 100%;
+          height: fit-content;
+          margin-top: 0;
+        }
+        .filter-dorms {
+          border-top: 3px solid #8f68c0;
+
+          padding-top: 30px;
+          display: flex;
+          width: 90%;
+          margin: auto;
+          margin-top: 20px;
+        }
+        #search {
+          display: block;
+          margin: auto;
+        }
+        .filter-dorms li,
+        ul {
+          margin: 0;
+          padding: 0;
+        }
+        .filter-wrapper-flex {
+          flex-direction: column;
+        }
+        .filter-wrapper-flex .about-filters {
+          width: 90%;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      }
+    </style>
 
     <script
       src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
@@ -87,7 +251,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr id="1838">
               <td>
                 <a
                   href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/1838-chicago.html"
@@ -97,7 +261,7 @@
               <td>120</td>
               <td>Residence Hall</td>
             </tr>
-            <tr>
+            <tr id="2303">
               <td>
                 <a
                   href="https://www.northwestern.edu/living/residential-experience/housing-options/res-colleges/2303-sheridan-ccs.html"
@@ -107,7 +271,7 @@
               <td>40</td>
               <td>Residential College</td>
             </tr>
-            <tr>
+            <tr id="greenhouse">
               <td>
                 <a
                   href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/2303-sheridan-rd.html"
@@ -117,7 +281,7 @@
               <td>40</td>
               <td>Residence Hall</td>
             </tr>
-            <tr>
+            <tr id="2349">
               <td>
                 <a
                   href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/2349-sheridan.html"
@@ -127,17 +291,16 @@
               <td>&lt;100</td>
               <td>Residence Hall</td>
             </tr>
-            <tr>
+            <tr id="560lincoln">
               <td>
-                <a
-                  href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/560-lincoln.html"
+                <a href="https://northbynorthwestern.com/housing-2021-lincoln/"
                   >560 Lincoln St.</a
                 >
               </td>
               <td>422</td>
               <td>Residence Hall</td>
             </tr>
-            <tr id="Allison">
+            <tr id="allison">
               <td>
                 <a
                   href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/allison.html"
@@ -147,7 +310,7 @@
               <td>363</td>
               <td>Residence Hall</td>
             </tr>
-            <tr>
+            <tr id="ayers">
               <td>
                 <a
                   href="https://www.northwestern.edu/living/residential-experience/housing-options/res-colleges/ayers.html"
@@ -157,7 +320,7 @@
               <td>170</td>
               <td>Residential College</td>
             </tr>
-            <tr>
+            <tr id="bobb">
               <td>
                 <a
                   href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/bobb-hall.html"
@@ -167,7 +330,7 @@
               <td>496</td>
               <td>Residence Hall</td>
             </tr>
-            <tr>
+            <tr id="chapin">
               <td>
                 <a
                   href="https://www.northwestern.edu/living/residential-experience/housing-options/res-colleges/chapin-hall.html"
@@ -177,7 +340,7 @@
               <td>72</td>
               <td>Residential College</td>
             </tr>
-            <tr>
+            <tr id="efc">
               <td>
                 <a
                   href="https://www.northwestern.edu/living/residential-experience/housing-options/res-colleges/east-fairchild.html"
@@ -187,7 +350,7 @@
               <td>109</td>
               <td>Residential College</td>
             </tr>
-            <tr>
+            <tr id="elder">
               <td>
                 <a
                   href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/elder.html"
@@ -197,17 +360,17 @@
               <td>345</td>
               <td>Residence Hall</td>
             </tr>
-            <tr>
+            <tr id="plex">
               <td>
                 <a
                   href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/foster-walker-plex.html"
                   >Foster-Walker Complex</a
                 >
               </td>
-              <td>49</td>
+              <td>582</td>
               <td>Residence Hall</td>
             </tr>
-            <tr>
+            <tr id="hobart">
               <td>
                 <a
                   href="https://www.northwestern.edu/living/residential-experience/housing-options/res-colleges/hobart-house.html"
@@ -217,7 +380,7 @@
               <td>50</td>
               <td>Residential College</td>
             </tr>
-            <tr>
+            <tr id="jones">
               <td>
                 <a
                   href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/jones-hall.html"
@@ -227,7 +390,7 @@
               <td>121</td>
               <td>Residence Hall</td>
             </tr>
-            <tr>
+            <tr id="kemper">
               <td>
                 <a
                   href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/kemper-hall.html"
@@ -237,7 +400,7 @@
               <td>165</td>
               <td>Residence Hall</td>
             </tr>
-            <tr>
+            <tr id="lindgren">
               <td>
                 <a
                   href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/lindgren-house.html"
@@ -247,7 +410,7 @@
               <td>37</td>
               <td>Residence Hall</td>
             </tr>
-            <tr>
+            <tr id="nmq">
               <td>
                 <a
                   href="https://www.northwestern.edu/living/residential-experience/housing-options/res-colleges/parc.html"
@@ -257,7 +420,7 @@
               <td>88</td>
               <td>Residential College</td>
             </tr>
-            <tr>
+            <tr id="rogers">
               <td>
                 <a
                   href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/rogers-house.html"
@@ -267,7 +430,7 @@
               <td>49</td>
               <td>Residence Hall</td>
             </tr>
-            <tr>
+            <tr id="sargent">
               <td>
                 <a
                   href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/sargent-hall.html"
@@ -277,7 +440,7 @@
               <td>157</td>
               <td>Residence Hall</td>
             </tr>
-            <tr>
+            <tr id="shepard">
               <td>
                 <a
                   href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/shepard-hall.html"
@@ -287,7 +450,7 @@
               <td>153</td>
               <td>Residence Hall</td>
             </tr>
-            <tr>
+            <tr id="slivka">
               <td>
                 <a
                   href="https://www.northwestern.edu/living/residential-experience/housing-options/res-colleges/slivka.html"
@@ -297,7 +460,7 @@
               <td>140</td>
               <td>Residential College</td>
             </tr>
-            <tr>
+            <tr id="smq">
               <td>
                 <a
                   href="https://www.northwestern.edu/living/residential-experience/housing-options/res-colleges/south-mid-quads.html"
@@ -307,7 +470,7 @@
               <td>88</td>
               <td>Residential College</td>
             </tr>
-            <tr>
+            <tr id="wfc">
               <td>
                 <a
                   href="https://www.northwestern.edu/living/residential-experience/housing-options/res-colleges/west-fairchild.html"
@@ -317,7 +480,7 @@
               <td>106</td>
               <td>Residential College</td>
             </tr>
-            <tr>
+            <tr id="willard">
               <td>
                 <a
                   href="https://www.northwestern.edu/living/residential-experience/housing-options/res-colleges/willard.html"
@@ -333,72 +496,84 @@
       <!--filters-->
       <div class="col3">
         <div class="filter-dorms">
-          <div class="filter-option">Campus area</div>
-          <ul class="campus-area">
-            <li>
-              <input
-                class="filter"
-                id="north"
-                type="checkbox"
-                value="North"
-              />North area
-            </li>
-            <li>
-              <input class="filter" id="south" type="checkbox" />South area
-            </li>
-            <li>
-              <input class="filter" id="southwest" type="checkbox" />Southwest
-              area
-            </li>
-            <li>
-              <input class="filter" id="northeast" type="checkbox" />Northeast
-              area
-            </li>
-          </ul>
+          <div class="col">
+            <div class="filter-option">Campus area</div>
+            <ul class="campus-area">
+              <li>
+                <input
+                  class="filter"
+                  id="north"
+                  type="checkbox"
+                  value="North"
+                />North area
+              </li>
+              <li>
+                <input class="filter" id="northeast" type="checkbox" />Northeast
+                area
+              </li>
+              <li>
+                <input class="filter" id="south" type="checkbox" />South area
+              </li>
+              <li>
+                <input class="filter" id="southwest" type="checkbox" />Southwest
+                area
+              </li>
+            </ul>
+          </div>
 
-          <div class="filter-option">Dorm size</div>
-          <ul class="size">
-            <li>
-              <input class="filter" id="small" type="checkbox" />Small (< 100
-              residents)
-            </li>
-            <li>
-              <input class="filter" id="medium" type="checkbox" />Medium
-              (100-200 residents)
-            </li>
-            <li>
-              <input class="filter" id="large" type="checkbox" />Large (> 200
-              residents)
-            </li>
-          </ul>
+          <div class="col">
+            <div class="filter-option">Dorm size</div>
+            <ul class="size">
+              <li>
+                <input class="filter" id="small" type="checkbox" />Small (< 100
+                residents)
+              </li>
+              <li>
+                <input class="filter" id="medium" type="checkbox" />Medium
+                (100-200 residents)
+              </li>
+              <li>
+                <input class="filter" id="large" type="checkbox" />Large (> 200
+                residents)
+              </li>
+            </ul>
+          </div>
 
-          <div class="filter-option">Type of dorm</div>
-          <ul class="type">
-            <li><input class="filter" id="hall" type="checkbox" />Res Hall</li>
-            <li>
-              <input class="filter" id="college" type="checkbox" />Res College
-            </li>
-          </ul>
-
-          <div class="filter-option">Miscellaneous perks</div>
-          <ul class="AC">
-            <li><input class="filter" id="AC" type="checkbox" />Has A.C.</li>
-            <li>
-              <input class="filter" id="dining" type="checkbox" />Has dining
-              hall
-            </li>
-            <li>
-              <input class="filter" id="bathroom" type="checkbox" />Suite-style
-              bathroom
-            </li>
-            <li>
-              <input class="filter" id="gender" type="checkbox" />All-gender
-              housing
-            </li>
-          </ul>
-
-          <button id="search">Search</button>
+          <div class="col">
+            <div class="filter-option">Type of dorm</div>
+            <ul class="type">
+              <li>
+                <input class="filter" id="hall" type="checkbox" />Res Hall
+              </li>
+              <li>
+                <input class="filter" id="college" type="checkbox" />Res College
+              </li>
+            </ul>
+          </div>
+          <div class="col">
+            <div class="filter-option">Miscellaneous perks</div>
+            <ul class="AC">
+              <li><input class="filter" id="AC" type="checkbox" />Has A.C.</li>
+              <li>
+                <input class="filter" id="dining" type="checkbox" />Has dining
+                hall
+              </li>
+              <li>
+                <input
+                  class="filter"
+                  id="bathroom"
+                  type="checkbox"
+                />Suite-style bathroom
+              </li>
+              <li>
+                <input class="filter" id="gender" type="checkbox" />All-gender
+                housing
+              </li>
+            </ul>
+          </div>
         </div>
+        <button id="search">Search</button>
+        <div id="notice"></div>
       </div>
     </div>
     <hr />
@@ -406,41 +581,594 @@
     <!--about the filters-->
 
     <div class="filter-wrapper">
-      <div class="about">About the filters</div>
+      <h2>ABOUT THE FILTERS</h2>
       <div class="filter-wrapper-flex">
         <div class="about-filters">
-          <p class="filter-hed">North and South Campus</p>
+          <h3 class="filter-hed">Campus Area</h3>
           <p>
-            We chose to divide the unofficial "North Campus" and "South Campus"
-            by Foster Street, so anything south of Foster is South Campus and
-            anything north of Foster is North Campus.
+            There are four residential areas:
+            <a href="https://sites.northwestern.edu/northarea/" target="_blank"
+              >North</a
+            >,
+            <a
+              href="https://sites.northwestern.edu/northeastarea/"
+              target="_blank"
+            >
+              Northeast</a
+            >,
+            <a
+              href="https://sites.northwestern.edu/southwestarea/"
+              target="_blank"
+            >
+              Southwest</a
+            >, and
+            <a href="https://sites.northwestern.edu/southarea/" target="_blank">
+              South</a
+            >. These areas are clusters of buildings with common features,
+            amenities, services, events, and staff.
           </p>
         </div>
         <div class="about-filters">
-          <p class="filter-hed">Types of halls</p>
+          <h3 class="filter-hed">Types of halls</h3>
           <p>
-            The university categorizes its halls into four types. A residential
-            community has student-organized events and live-in faculty. A
-            residential college has a theme and offers activities and
-            specialized classes supported by faculty fellows. Special interest
-            housing includes Interfaith Residence Hall in 1835 Hinman, GREEN
-            House and other halls with particular focuses. A residence hall
-            offers a classic college experience.
+            There are two main housing models:
+            <a
+              href="https://www.northwestern.edu/living/residential-experience/housing-options/res-halls/index.html"
+              target="_blank"
+            >
+              residential hall</a
+            >, and
+            <a
+              href="https://www.northwestern.edu/living/residential-experience/housing-options/res-colleges/index.html"
+              target="_blank"
+              >residential colleges</a
+            >. The primary difference between them is the degree of faculty
+            involvement. Residence halls have all of the programs and support a
+            student needs for a meaningful residential experience. Residential
+            colleges offer more opportunities for faculty engagement and
+            programming as well as continuity of community that comes with a
+            culture of returning residents and longstanding faculty
+            affiliations.
           </p>
         </div>
         <div class="about-filters">
-          <p class="filter-hed">Gender Open Housing</p>
+          <h3 class="filter-hed">All-Gender Housing</h3>
           <p>
-            Gender Open Housing has existed since 2010 as "an arrangement
-            whereby students, regardless of sex, gender, or gender identity, are
-            permitted to share a room or suite in select areas of Northwestern’s
-            residence halls." Currently, no first-year students are eligible for
-            gender open housing.
+            <a
+              href="https://www.northwestern.edu/living/residential-experience/housing-options/all-gender-housing.html"
+              target="_blank"
+            >
+              All Gender Housing </a
+            >has existed since 2010 as "an arrangement whereby students,
+            regardless of sex, gender, or gender identity, are permitted to
+            share a room or suite in select areas of Northwestern’s residence
+            halls."
           </p>
         </div>
       </div>
     </div>
 
-    <script src="main.js"></script>
+    <script>
+      const dormList = [
+        {
+          Name: "560 Lincoln St.",
+          Class: "560lincoln",
+          lat: 42.06146145,
+          long: -87.6756815,
+          Size: 422,
+          Type: "Residence Hall",
+          Area: "North",
+          AC: true,
+          Dining: false,
+          Suite: true,
+          "All-gender": true,
+        },
+        {
+          Name: "1838 Chicago Ave.",
+          Class: "1838",
+          lat: 42.05110501,
+          long: -87.67816606,
+          Size: 120,
+          Type: "Residence Hall",
+          Area: "South",
+          AC: true,
+          Dining: false,
+          Suite: false,
+          "All-gender": false,
+        },
+        {
+          Name: "2303 Sheridan Rd. (GREEN House)",
+          Class: "greenhouse",
+          lat: 42.05949702,
+          long: -87.6765947,
+          Size: 40,
+          Type: "Residence Hall",
+          Area: "Northeast",
+          AC: true,
+          Dining: false,
+          Suite: false,
+          "All-gender": false,
+        },
+        {
+          Name: "2349 Sheridan Rd.",
+          Class: "2349",
+          lat: 42.06130671,
+          long: -87.6761558,
+          Size: 90,
+          Type: "Residence Hall",
+          Area: "North",
+          AC: false,
+          Dining: false,
+          Suite: false,
+          "All-gender": false,
+        },
+        {
+          Name: "Allison Hall",
+          Class: "allison",
+          lat: 42.05060418,
+          long: -87.6782444,
+          Size: 363,
+          Type: "Residence Hall",
+          Area: "South",
+          AC: true,
+          Dining: true,
+          Suite: false,
+          "All-gender": true,
+        },
+        {
+          Name: "Elder Hall",
+          Class: "elder",
+          lat: 42.06103289,
+          long: -87.67728019,
+          Size: 345,
+          Type: "Residence Hall",
+          Area: "North",
+          AC: true,
+          Dining: true,
+          Suite: false,
+          "All-gender": true,
+        },
+        {
+          Name: "Bobb-McCulloch Hall",
+          Class: "bobb",
+          lat: 42.05996322,
+          long: -87.67542938,
+          Size: 496,
+          Type: "Residence Hall",
+          Area: "Northeast",
+          AC: true,
+          Dining: false,
+          Suite: false,
+          "All-gender": false,
+        },
+        {
+          Name: "Foster-Walker Complex",
+          Class: "plex",
+          lat: 42.05298388,
+          long: -87.67817516,
+          Size: 582,
+          Type: "Residence Hall",
+          Area: "Southwest",
+          AC: true,
+          Dining: true,
+          Suite: false,
+          "All-gender": true,
+        },
+        {
+          Name: "Jones Hall",
+          Class: "jones",
+          lat: 42.04951668,
+          long: -87.67431117,
+          Size: 121,
+          Type: "Residence Hall",
+          Area: "South",
+          AC: true,
+          Dining: false,
+          Suite: false,
+          "All-gender": false,
+        },
+        {
+          Name: "Kemper Hall",
+          Class: "kemper",
+          lat: 42.06117345,
+          long: -87.67423103,
+          Size: 165,
+          Type: "Residence Hall",
+          Area: "North",
+          AC: true,
+          Dining: false,
+          Suite: true,
+          "All-gender": true,
+        },
+        {
+          Name: "Lindgren House",
+          Class: "lindgren",
+          lat: 42.05968626,
+          long: -87.67619105,
+          Size: 37,
+          Type: "Residence Hall",
+          Area: "Northeast",
+          AC: false,
+          Dining: false,
+          Suite: false,
+          "All-gender": false,
+        },
+        {
+          Name: "Rogers House",
+          Class: "rogers",
+          lat: 42.05154068,
+          long: -87.67853493,
+          Size: 49,
+          Type: "Residence Hall",
+          Area: "South",
+          AC: false,
+          Dining: false,
+          Suite: false,
+          "All-gender": false,
+        },
+        {
+          Name: "Sargent Hall",
+          Class: "sargent",
+          lat: 42.0588595,
+          long: -87.67524432,
+          Size: 157,
+          Type: "Residence Hall",
+          Area: "Northeast",
+          AC: false,
+          Dining: true,
+          Suite: false,
+          "All-gender": false,
+        },
+        {
+          Name: "Shepard Hall",
+          Class: "shepard",
+          lat: 42.05108938,
+          long: -87.67829267,
+          Size: 153,
+          Type: "Residence Hall",
+          Area: "South",
+          AC: true,
+          Dining: false,
+          Suite: false,
+          "All-gender": false,
+        },
+        {
+          Name: "Ayers Hall",
+          Class: "ayers",
+          lat: 42.06055079,
+          long: -87.67463706,
+          Size: 170,
+          Type: "Residential College",
+          Area: "Northeast",
+          AC: true,
+          Dining: false,
+          Suite: false,
+          "All-gender": false,
+        },
+        {
+          Name: "Chapin Hall ",
+          Class: "chapin",
+          lat: 42.05126465,
+          long: -87.68045051,
+          Size: 72,
+          Type: "Residential College",
+          Area: "Southwest",
+          AC: false,
+          Dining: false,
+          Suite: false,
+          "All-gender": false,
+        },
+        {
+          Name: "2303 Sheridan Rd. ",
+          Class: "2303",
+          lat: 42.05949702,
+          long: -87.6765947,
+          Size: 40,
+          Type: "Residential College",
+          Area: "Northeast",
+          AC: true,
+          Dining: false,
+          Suite: false,
+          "All-gender": false,
+        },
+        {
+          Name: "East Fairchild",
+          Class: "efc",
+          lat: 42.05078145,
+          long: -87.67427763,
+          Size: 109,
+          Type: "Residential College",
+          Area: "South",
+          AC: true,
+          Dining: false,
+          Suite: false,
+          "All-gender": false,
+        },
+        {
+          Name: "Hobart House ",
+          Class: "hobart",
+          lat: 42.05190354,
+          long: -87.67850153,
+          Size: 50,
+          Type: "Residential College",
+          Area: "South",
+          AC: true,
+          Dining: false,
+          Suite: false,
+          "All-gender": false,
+        },
+        {
+          Name: "North Mid-Quads",
+          Class: "nmq",
+          lat: 42.05192888,
+          long: -87.67953558,
+          Size: 88,
+          Type: "Residential College",
+          Area: "Southwest",
+          AC: true,
+          Dining: false,
+          Suite: false,
+          "All-gender": false,
+        },
+        {
+          Name: "South Mid-Quads ",
+          Class: "smq",
+          lat: 42.05150168,
+          long: -87.67895784,
+          Size: 88,
+          Type: "Residential College",
+          Area: "Southwest",
+          AC: true,
+          Dining: false,
+          Suite: false,
+          "All-gender": false,
+        },
+        {
+          Name: "Slivka Hall",
+          Class: "slivka",
+          lat: 42.06062123,
+          long: -87.67531556,
+          Size: 140,
+          Type: "Residential College",
+          Area: "Northeast",
+          AC: true,
+          Dining: false,
+          Suite: true,
+          "All-gender": false,
+        },
+        {
+          Name: "West Fairchild",
+          Class: "wfc",
+          lat: 42.05116568,
+          long: -87.67539924,
+          Size: 106,
+          Type: "Residential College",
+          Area: "South",
+          AC: true,
+          Dining: false,
+          Suite: false,
+          "All-gender": false,
+        },
+        {
+          Name: "Willard Hall ",
+          Class: "willard",
+          lat: 42.05183478,
+          long: -87.68119685,
+          Size: 261,
+          Type: "Residential College",
+          Area: "Southwest",
+          AC: true,
+          Dining: false,
+          Suite: false,
+          "All-gender": false,
+        },
+      ];
+
+      var purpleIcon = new L.Icon({
+        iconUrl:
+          "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png",
+        shadowUrl:
+          "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41],
+      });
+
+      var grayIcon = new L.Icon({
+        iconUrl:
+          "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-grey.png",
+        shadowUrl:
+          "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41],
+      });
+
+      var mymap = L.map("mapid").setView([42.055984, -87.675171], 15);
+
+      L.tileLayer(
+        "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png",
+        {
+          attribution:
+            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+          subdomains: "abcd",
+          maxZoom: 19,
+        }
+      ).addTo(mymap);
+
+      var markers = {};
+
+      (function makeMarkers() {
+        for (var i in dormList) {
+          var marker = L.marker([dormList[i].lat, dormList[i].long]).setIcon(
+            grayIcon
+          );
+          marker.addTo(mymap);
+          marker.bindPopup(dormList[i].short_name);
+          marker.on("mouseover", function (e) {
+            this.openPopup();
+            this.setIcon(purpleIcon);
+          });
+          marker.on("mouseout", function (e) {
+            this.closePopup();
+            this.setIcon(grayIcon);
+          });
+
+          markers[i] = marker;
+          marker.bindPopup(`<p>${dormList[i].Name} </p>`);
+        }
+      })();
+
+      let filterList = [];
+
+      document.getElementById("search").onclick = function () {
+        for (let tag of document.getElementsByTagName("tr")) {
+          tag.style.backgroundColor = "transparent";
+        }
+
+        const checkboxes = document.querySelectorAll(
+          'input[type="checkbox"]:checked'
+        );
+        filterList = [];
+        for (let check of checkboxes) {
+          switch (check.id) {
+            case "north":
+              filterList.push("North");
+              break;
+            case "south":
+              filterList.push("South");
+              break;
+            case "southwest":
+              filterList.push("Southwest");
+              break;
+            case "northeast":
+              filterList.push("Northeast");
+              break;
+            case "small":
+              filterList.push("Small");
+              break;
+            case "medium":
+              filterList.push("Medium");
+              break;
+            case "large":
+              filterList.push("Large");
+              break;
+            case "hall":
+              filterList.push("Residence Hall");
+              break;
+            case "college":
+              filterList.push("Residential College");
+              break;
+            case "dining":
+              filterList.push("Dining");
+              break;
+            case "AC":
+              filterList.push("AC");
+              break;
+            case "bathroom":
+              filterList.push("Suite");
+              break;
+            case "gender":
+              filterList.push("All-gender");
+              break;
+          }
+        }
+        let filteredDorms = dormList.filter((dorm) =>
+          checkFilters(dorm, filterList)
+        );
+
+        if (!filteredDorms.length) {
+          document.getElementById("notice").innerHTML =
+            "<h3> NO MATCHES FOUND :^( Try lowering your standards & removing a few filters!</h3>";
+        } else {
+          document.getElementById("notice").innerHTML = "";
+        }
+        for (let i = 0; i < filteredDorms.length; i++) {
+          console.log(filteredDorms[i].Class);
+          let dormRow = document.getElementById(filteredDorms[i].Class);
+          dormRow.style.backgroundColor = "lightgreen";
+        }
+      };
+
+      const checkFilters = (object, filters) => {
+        let locationsCheck = filters.filter(
+          (i) =>
+            i == "North" || i == "South" || i == "Southwest" || i == "Northeast"
+        );
+        let sizeCheck = filters.filter(
+          (i) => i == "Small" || i == "Medium" || i == "Large"
+        );
+        let typeCheck = filters.filter(
+          (i) => i == "Residence Hall" || i == "Residential College"
+        );
+        let dormArea = object.Area;
+        let dormPop = object.Size;
+        let dormSize;
+        if (dormPop < 100) {
+          dormSize = "Small";
+        } else if (dormPop > 100 && dormPop <= 200) {
+          dormSize = "Medium";
+        } else {
+          dormSize = "Large";
+        }
+        let areaMatch = true;
+        let sizeMatch = true;
+        let typeMatch = true;
+        let diningMatch = true;
+        let acMatch = true;
+        let suiteMatch = true;
+        let genderMatch = true;
+        if (locationsCheck.length > 0) {
+          if (locationsCheck.includes(dormArea) == false) {
+            areaMatch = false;
+          }
+        }
+        if (sizeCheck.length > 0) {
+          if (sizeCheck.includes(dormSize) == false) {
+            sizeMatch = false;
+          }
+        }
+        if (typeCheck.length > 0) {
+          if (typeCheck.includes(object.Type) == false) {
+            typeMatch = false;
+          }
+        }
+        if (filters.includes("Dining")) {
+          if (object.Dining == false) {
+            diningMatch = false;
+          }
+        }
+        if (filters.includes("AC")) {
+          if (object.AC == false) {
+            acMatch = false;
+          }
+        }
+        if (filters.includes("Suite")) {
+          if (object.Suite == false) {
+            suiteMatch = false;
+          }
+        }
+        if (filters.includes("All-gender")) {
+          if (object["All-gender"] == false) {
+            genderMatch = false;
+          }
+        }
+        if (
+          areaMatch &&
+          sizeMatch &&
+          typeMatch &&
+          diningMatch &&
+          acMatch &&
+          suiteMatch &&
+          genderMatch
+        ) {
+          return true;
+        } else {
+          return false;
+        }
+      };
+    </script>
   </body>
 </html>

@@ -1,6 +1,7 @@
 const dormList = [
   {
     Name: "560 Lincoln St.",
+    Class: "560lincoln",
     lat: 42.06146145,
     long: -87.6756815,
     Size: 422,
@@ -13,6 +14,7 @@ const dormList = [
   },
   {
     Name: "1838 Chicago Ave.",
+    Class: "1838",
     lat: 42.05110501,
     long: -87.67816606,
     Size: 120,
@@ -25,6 +27,7 @@ const dormList = [
   },
   {
     Name: "2303 Sheridan Rd. (GREEN House)",
+    Class: "greenhouse",
     lat: 42.05949702,
     long: -87.6765947,
     Size: 40,
@@ -37,6 +40,7 @@ const dormList = [
   },
   {
     Name: "2349 Sheridan Rd.",
+    Class: "2349",
     lat: 42.06130671,
     long: -87.6761558,
     Size: 90,
@@ -49,6 +53,7 @@ const dormList = [
   },
   {
     Name: "Allison Hall",
+    Class: "allison",
     lat: 42.05060418,
     long: -87.6782444,
     Size: 363,
@@ -61,6 +66,7 @@ const dormList = [
   },
   {
     Name: "Elder Hall",
+    Class: "elder",
     lat: 42.06103289,
     long: -87.67728019,
     Size: 345,
@@ -73,6 +79,7 @@ const dormList = [
   },
   {
     Name: "Bobb-McCulloch Hall",
+    Class: "bobb",
     lat: 42.05996322,
     long: -87.67542938,
     Size: 496,
@@ -85,9 +92,10 @@ const dormList = [
   },
   {
     Name: "Foster-Walker Complex",
+    Class: "plex",
     lat: 42.05298388,
     long: -87.67817516,
-    Size: 49,
+    Size: 582,
     Type: "Residence Hall",
     Area: "Southwest",
     AC: true,
@@ -97,6 +105,7 @@ const dormList = [
   },
   {
     Name: "Jones Hall",
+    Class: "jones",
     lat: 42.04951668,
     long: -87.67431117,
     Size: 121,
@@ -109,6 +118,7 @@ const dormList = [
   },
   {
     Name: "Kemper Hall",
+    Class: "kemper",
     lat: 42.06117345,
     long: -87.67423103,
     Size: 165,
@@ -121,6 +131,7 @@ const dormList = [
   },
   {
     Name: "Lindgren House",
+    Class: "lindgren",
     lat: 42.05968626,
     long: -87.67619105,
     Size: 37,
@@ -133,6 +144,7 @@ const dormList = [
   },
   {
     Name: "Rogers House",
+    Class: "rogers",
     lat: 42.05154068,
     long: -87.67853493,
     Size: 49,
@@ -145,6 +157,7 @@ const dormList = [
   },
   {
     Name: "Sargent Hall",
+    Class: "sargent",
     lat: 42.0588595,
     long: -87.67524432,
     Size: 157,
@@ -157,6 +170,7 @@ const dormList = [
   },
   {
     Name: "Shepard Hall",
+    Class: "shepard",
     lat: 42.05108938,
     long: -87.67829267,
     Size: 153,
@@ -169,6 +183,7 @@ const dormList = [
   },
   {
     Name: "Ayers Hall",
+    Class: "ayers",
     lat: 42.06055079,
     long: -87.67463706,
     Size: 170,
@@ -181,6 +196,7 @@ const dormList = [
   },
   {
     Name: "Chapin Hall ",
+    Class: "chapin",
     lat: 42.05126465,
     long: -87.68045051,
     Size: 72,
@@ -193,6 +209,7 @@ const dormList = [
   },
   {
     Name: "2303 Sheridan Rd. ",
+    Class: "2303",
     lat: 42.05949702,
     long: -87.6765947,
     Size: 40,
@@ -205,6 +222,7 @@ const dormList = [
   },
   {
     Name: "East Fairchild",
+    Class: "efc",
     lat: 42.05078145,
     long: -87.67427763,
     Size: 109,
@@ -217,6 +235,7 @@ const dormList = [
   },
   {
     Name: "Hobart House ",
+    Class: "hobart",
     lat: 42.05190354,
     long: -87.67850153,
     Size: 50,
@@ -229,6 +248,7 @@ const dormList = [
   },
   {
     Name: "North Mid-Quads",
+    Class: "nmq",
     lat: 42.05192888,
     long: -87.67953558,
     Size: 88,
@@ -241,6 +261,7 @@ const dormList = [
   },
   {
     Name: "South Mid-Quads ",
+    Class: "smq",
     lat: 42.05150168,
     long: -87.67895784,
     Size: 88,
@@ -253,6 +274,7 @@ const dormList = [
   },
   {
     Name: "Slivka Hall",
+    Class: "slivka",
     lat: 42.06062123,
     long: -87.67531556,
     Size: 140,
@@ -265,6 +287,7 @@ const dormList = [
   },
   {
     Name: "West Fairchild",
+    Class: "wfc",
     lat: 42.05116568,
     long: -87.67539924,
     Size: 106,
@@ -277,8 +300,9 @@ const dormList = [
   },
   {
     Name: "Willard Hall ",
-    lat: 42.051834777527965,
-    long: -87.68119684609334,
+    Class: "willard",
+    lat: 42.05183478,
+    long: -87.68119685,
     Size: 261,
     Type: "Residential College",
     Area: "Southwest",
@@ -342,143 +366,152 @@ var markers = {};
     });
 
     markers[i] = marker;
-    marker.bindPopup(`<p>${dormList[i].Name} </p>`).openPopup();
+    marker.bindPopup(`<p>${dormList[i].Name} </p>`);
   }
 })();
 
-const allDorms = dormList.map(function (dorm) {
-  return dorm.Name;
-});
-const allFilters = {};
-
-//CAMPUS AREA
-
-allFilters.north = dormList
-  .filter(function (dorm) {
-    return dorm.Area == "North";
-  })
-  .map(function (dorm) {
-    return dorm.Name;
-  });
-
-allFilters.south = dormList
-  .filter(function (dorm) {
-    return dorm.Area == "South";
-  })
-  .map(function (dorm) {
-    return dorm.Name;
-  });
-
-allFilters.northeast = dormList
-  .filter(function (dorm) {
-    return dorm.Area == "Northeast";
-  })
-  .map(function (dorm) {
-    return dorm.Name;
-  });
-
-allFilters.southwest = dormList
-  .filter(function (dorm) {
-    return dorm.Area == "Southwest";
-  })
-  .map(function (dorm) {
-    return dorm.Name;
-  });
-
-//DORM SIZE
-allFilters.small = dormList
-  .filter(function (dorm) {
-    return dorm.Size < 100;
-  })
-  .map(function (dorm) {
-    return dorm.Name;
-  });
-allFilters.medium = dormList
-  .filter(function (dorm) {
-    return dorm.Size > 100 && dorm.Size <= 200;
-  })
-  .map(function (dorm) {
-    return dorm.Name;
-  });
-allFilters.large = dormList
-  .filter(function (dorm) {
-    return dorm.Size > 200;
-  })
-  .map(function (dorm) {
-    return dorm.Name;
-  });
-//DORM TYPE
-
-allFilters.hall = dormList
-  .filter(function (dorm) {
-    return dorm.Type == "Residence Hall";
-  })
-  .map(function (dorm) {
-    return dorm.Name;
-  });
-allFilters.college = dormList
-  .filter(function (dorm) {
-    return dorm.Type == "Residential College";
-  })
-  .map(function (dorm) {
-    return dorm.Name;
-  });
-
-//MISC PERKS
-allFilters.AC = dormList
-  .filter(function (dorm) {
-    return dorm.AC == true;
-  })
-  .map(function (dorm) {
-    return dorm.Name;
-  });
-allFilters.dining = dormList
-  .filter(function (dorm) {
-    return dorm.Dining == true;
-  })
-  .map(function (dorm) {
-    return dorm.Name;
-  });
-allFilters.bathroom = dormList
-  .filter(function (dorm) {
-    return dorm.Suite == true;
-  })
-  .map(function (dorm) {
-    return dorm.Name;
-  });
-allFilters.gender = dormList
-  .filter(function (dorm) {
-    return dorm["All-gender"] == true;
-  })
-  .map(function (dorm) {
-    return dorm.Name;
-  });
-
-let checkboxValue = [];
+let filterList = [];
 
 document.getElementById("search").onclick = function () {
+  for (let tag of document.getElementsByTagName("tr")) {
+    tag.style.backgroundColor = "transparent";
+  }
+
   const checkboxes = document.querySelectorAll(
     'input[type="checkbox"]:checked'
   );
-
-  //sets array of CheckBoxValues (user selections/filters) to the id of the inputs/checkboxes
-  var numSelected = checkboxes.length;
-
-  if (numSelected) {
-    for (let i = 0; i < checkboxes.length; i++) {
-      checkboxValue[i] = checkboxes[i].id;
+  filterList = [];
+  for (let check of checkboxes) {
+    switch (check.id) {
+      case "north":
+        filterList.push("North");
+        break;
+      case "south":
+        filterList.push("South");
+        break;
+      case "southwest":
+        filterList.push("Southwest");
+        break;
+      case "northeast":
+        filterList.push("Northeast");
+        break;
+      case "small":
+        filterList.push("Small");
+        break;
+      case "medium":
+        filterList.push("Medium");
+        break;
+      case "large":
+        filterList.push("Large");
+        break;
+      case "hall":
+        filterList.push("Residence Hall");
+        break;
+      case "college":
+        filterList.push("Residential College");
+        break;
+      case "dining":
+        filterList.push("Dining");
+        break;
+      case "AC":
+        filterList.push("AC");
+        break;
+      case "bathroom":
+        filterList.push("Suite");
+        break;
+      case "gender":
+        filterList.push("All-gender");
+        break;
     }
+  }
+  let filteredDorms = dormList.filter((dorm) => checkFilters(dorm, filterList));
 
-    const nameObj = [];
+  if (!filteredDorms.length) {
+    document.getElementById("notice").innerHTML =
+      "<h3> NO MATCHES FOUND :^( Try lowering your standards & removing a few filters!</h3>";
+  } else {
+    document.getElementById("notice").innerHTML = "";
+  }
+  for (let i = 0; i < filteredDorms.length; i++) {
+    console.log(filteredDorms[i].Class);
+    let dormRow = document.getElementById(filteredDorms[i].Class);
+    dormRow.style.backgroundColor = "lightgreen";
+  }
+};
 
-    for (let i = 0; i < allDorms.length; i++) {
-      nameObj[i] = { name: allDorms[i], matchCount: 0 };
-
-      for (let i = 0; i < checkboxValue.length; i++) {
-        if (allFilters[checkboxValue[i]].includes(name)) {
-          nameObj[i].matchCount += 1;
-        }
-      }
+const checkFilters = (object, filters) => {
+  let locationsCheck = filters.filter(
+    (i) => i == "North" || i == "South" || i == "Southwest" || i == "Northeast"
+  );
+  let sizeCheck = filters.filter(
+    (i) => i == "Small" || i == "Medium" || i == "Large"
+  );
+  let typeCheck = filters.filter(
+    (i) => i == "Residence Hall" || i == "Residential College"
+  );
+  let dormArea = object.Area;
+  let dormPop = object.Size;
+  let dormSize;
+  if (dormPop < 100) {
+    dormSize = "Small";
+  } else if (dormPop > 100 && dormPop <= 200) {
+    dormSize = "Medium";
+  } else {
+    dormSize = "Large";
+  }
+  let areaMatch = true;
+  let sizeMatch = true;
+  let typeMatch = true;
+  let diningMatch = true;
+  let acMatch = true;
+  let suiteMatch = true;
+  let genderMatch = true;
+  if (locationsCheck.length > 0) {
+    if (locationsCheck.includes(dormArea) == false) {
+      areaMatch = false;
     }
+  }
+  if (sizeCheck.length > 0) {
+    if (sizeCheck.includes(dormSize) == false) {
+      sizeMatch = false;
+    }
+  }
+  if (typeCheck.length > 0) {
+    if (typeCheck.includes(object.Type) == false) {
+      typeMatch = false;
+    }
+  }
+  if (filters.includes("Dining")) {
+    if (object.Dining == false) {
+      diningMatch = false;
+    }
+  }
+  if (filters.includes("AC")) {
+    if (object.AC == false) {
+      acMatch = false;
+    }
+  }
+  if (filters.includes("Suite")) {
+    if (object.Suite == false) {
+      suiteMatch = false;
+    }
+  }
+  if (filters.includes("All-gender")) {
+    if (object["All-gender"] == false) {
+      genderMatch = false;
+    }
+  }
+  if (
+    areaMatch &&
+    sizeMatch &&
+    typeMatch &&
+    diningMatch &&
+    acMatch &&
+    suiteMatch &&
+    genderMatch
+  ) {
+    return true;
+  } else {
+    return false;
   }
 };
